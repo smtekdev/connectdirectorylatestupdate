@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add Soccer Product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR - #071021 */
+        .sidebar {
+            width: 250px;
+            background-color: #071021;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 22px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            padding: 15px 15px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            color: #b0b7c3;
+            font-weight: 500;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #0d1a36;
+            color: #4fc3f7;
+        }
+
+        .sidebar ul li.active {
+            background-color: #0d1a36;
+            color: #4fc3f7;
+            border-left: 4px solid #4fc3f7;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            background-color: #0f172a;
+            overflow-y: auto;
+        }
+
+        /* Header */        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .header h1 {
+            color: #f1f5f9;
+            font-size: 28px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background-color: #1e63ff;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: #1e63ff;
+            background-color: #0f172a;
+        }
+
+        /* Product Form */
+        .product-form-container {
+            background-color: #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #334155;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            color: #f1f5f9;
+            font-size: 22px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #334155;
+        }
+
+        /* Form Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            color: #f1f5f9;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e63ff;
+            box-shadow: 0 0 0 3px rgba(30, 99, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed #475569;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            background-color: #0f172a;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #1e63ff;
+            background-color: rgba(30, 99, 255, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .upload-btn {
+            background: linear-gradient(90deg, #1e63ff, #14cba8);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .preview-images {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .preview-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #334155;
+        }
+
+        /* Size Variants */
+        .size-variants {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .size-option {
+            padding: 8px 15px;
+            background-color: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .size-option:hover {
+            border-color: #1e63ff;
+        }
+
+        .size-option.selected {
+            background: linear-gradient(90deg, #1e63ff, #14cba8);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* Color Options */
+        .color-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: white;
+            box-shadow: 0 0 0 2px #1e63ff;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background-color: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            margin-bottom: 25px;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Inventory Section */
+        .inventory-section {
+            background-color: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            margin-bottom: 25px;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #334155;
+        }
+
+        .cancel-btn {
+            padding: 12px 30px;
+            background-color: transparent;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background-color: #0f172a;
+            border-color: #1e63ff;
+        }
+
+        .save-btn {
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #1e63ff, #14cba8);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 99, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+               <h2>
+                <!-- Logo -->
+                User Dashboard<div class="user-avatar">
+            <img 
+                src=".\assets\images\user-19.jpg" 
+                alt="Student Avatar"
+                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+        </div>
+            </h2>
+            <ul>
+    <li><h3>Main Menu</h3></li>
+  <li><a href="dashboard.html" style="text-decoration: none; color: inherit; display: block;">Dashboard</a></li>
+                <li><a href="listing.html" style="text-decoration: none; color: inherit; display: block;">My Profile</a></li>
+  <li><a href="customorder.html" style="text-decoration: none; color: inherit; display: block;">Wishlist</a></li>
+  <li class="active"><a href="addproducts.html" style="text-decoration: none; color: inherit; display: block;">Reviews</a></li>
+     <li><h3>Account Settings</h3></li>
+  <li><a href="directory.html" style="text-decoration: none; color: inherit; display: block;">Settings</a></li>
+  <li><a href="login.html" style="text-decoration: none; color: inherit; display: block;">Sign Out</a></li>
+</ul>
+
+<script>
+// Pure li elements par click ka functionality
+document.querySelectorAll('li').forEach(function(li) {
+  li.addEventListener('click', function(e) {
+    // Agar directly link par click hua hai to default behavior chale
+    if (e.target.tagName === 'A') return;
+    
+    var link = this.querySelector('a');
+    if (link) {
+      window.location.href = link.href;
+    }
+  });
+  
+  // Optional: Hover effect ke liye cursor pointer
+  li.style.cursor = 'pointer';
+});
+</script>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+                       <h1>Reviews</h1>
+           <div class="user-info" style="position: relative;">
+    <div class="user-dropdown-trigger" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background 0.3s;" 
+         onclick="toggleDropdown()">
+        <div class="user-avatar">
+            <img 
+                src=".\assets\images\user-19.jpg" 
+                alt="Student Avatar"
+                style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
+        </div>
+        <div class="user-details">
+            <h3 style="margin: 0; font-size: 16px; color: #f1f5f9;">Studentdemo 2</h3>
+            <p style="margin: 0; font-size: 12px; color: #94a3b8;">Student</p>
+        </div>
+        <i class="fas fa-chevron-down" style="color: #94a3b8; font-size: 12px; transition: transform 0.3s;" id="dropdownArrow"></i>
+    </div>
+    
+    <!-- Dropdown Menu -->
+    <div class="user-dropdown-menu" id="userDropdown" style="
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 250px;
+        background-color: #1e293b;
+        border-radius: 12px;
+        border: 1px solid #334155;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        margin-top: 10px;
+        z-index: 1000;
+        overflow: hidden;
+    ">
+        <!-- User Info at Top -->
+        <div style="padding: 20px; border-bottom: 1px solid #334155; background: rgba(15, 23, 42, 0.5);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                <img 
+                    src="D:\muzamil\mainconnect\connectdirect-main\assets\images\user-19.jpg" 
+                    alt="Student Avatar"
+                    style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
+                <div>
+                    <h4 style="margin: 0; color: #f1f5f9; font-size: 16px;">Studentdemo 2</h4>
+                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">studentdemo2@example.com</p>
+                </div>
+            </div>
+     
+        </div>
+        
+        <!-- Menu Items -->
+        <div style="padding: 10px 0;">
+            <a href="dashboard.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-tachometer-alt" style="width: 20px; color: #4fc3f7;"></i>
+                Dashboard
+            </a>
+            
+            <a href="my-profile.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-user" style="width: 20px; color: #14cba8;"></i>
+                My Profile
+            </a>
+            
+            <a href="settings.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-cog" style="width: 20px; color: #ffc107;"></i>
+                Settings
+            </a>
+            
+            <a href="my-purchases.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-shopping-bag" style="width: 20px; color: #1e63ff;"></i>
+                My Purchases
+            </a>
+            
+            <a href="wishlist.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-heart" style="width: 20px; color: #ff4757;"></i>
+                Wishlist
+            </a>
+            
+            <a href="reviews.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
+               onmouseout="this.style.backgroundColor='transparent'">
+                <i class="fas fa-star" style="width: 20px; color: #ffc107;"></i>
+                My Reviews
+            </a>
+        </div>
+        
+        <!-- Divider -->
+        <div style="border-top: 1px solid #334155; margin: 5px 0;"></div>
+        
+        <!-- Sign Out Button -->
+        <div style="padding: 15px 20px;">
+            <button onclick="signOut()" style="
+                width: 100%;
+                padding: 12px;
+                background: linear-gradient(90deg, #ff4757, #ff6b81);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255, 71, 87, 0.3)'" 
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <i class="fas fa-sign-out-alt"></i>
+                Sign Out
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+    // Dropdown Toggle Function
+    function toggleDropdown() {
+        const dropdown = document.getElementById('userDropdown');
+        const arrow = document.getElementById('dropdownArrow');
+        
+        if (dropdown.style.display === 'block') {
+            dropdown.style.display = 'none';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            dropdown.style.display = 'block';
+            arrow.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('userDropdown');
+        const trigger = document.querySelector('.user-dropdown-trigger');
+        
+        if (!trigger.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.style.display = 'none';
+            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // Sign Out Function
+    function signOut() {
+        // Confirmation dialog
+        if (confirm("Are you sure you want to sign out?")) {
+            // Clear user session data (example)
+            localStorage.removeItem('userToken');
+            sessionStorage.clear();
+            
+            // Redirect to login page
+            window.location.href = "login.html";
+            
+            // Optional: Show logout message
+            alert("Signed out successfully! Redirecting to login page...");
+        }
+    }
+
+    // Close dropdown when a menu item is clicked (for mobile)
+    document.querySelectorAll('.user-dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('userDropdown').style.display = 'none';
+            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+        });
+    });
+</script>
+
+<style>
+    /* Hover effect for dropdown trigger */
+    .user-dropdown-trigger:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Animation for dropdown */
+    .user-dropdown-menu {
+        animation: fadeIn 0.2s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .user-dropdown-menu {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            width: 280px;
+        }
+    }
+</style>  </div>
+
+        <!-- Product Form -->
+        <div class="product-form-container">
+            <h2 class="form-title">Product Information</h2>
+
+            <!-- Basic Information -->
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="productName">Product Name *</label>
+                    <input type="text" id="productName" placeholder="e.g., Barcelona Home Jersey 2023/24">
+                </div>
+
+                <div class="form-group">
+                    <label for="productCategory">Category *</label>
+                    <select id="productCategory">
+                        <option value="">Select Category</option>
+                        <option value="jerseys">Jerseys</option>
+                        <option value="shorts">Shorts</option>
+                        <option value="kits">Full Kits</option>
+                        <option value="training">Training Wear</option>
+                        <option value="goalkeeper">Goalkeeper Kits</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="productClub">Football Club *</label>
+                    <select id="productClub">
+                        <option value="">Select Club</option>
+                        <option value="barcelona">FC Barcelona</option>
+                        <option value="real-madrid">Real Madrid</option>
+                        <option value="man-united">Manchester United</option>
+                        <option value="man-city">Manchester City</option>
+                        <option value="liverpool">Liverpool FC</option>
+                        <option value="chelsea">Chelsea FC</option>
+                        <option value="psg">Paris Saint-Germain</option>
+                        <option value="bayern">Bayern Munich</option>
+                        <option value="juventus">Juventus</option>
+                        <option value="milan">AC Milan</option>
+                        <option value="national">National Teams</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="productSeason">Season *</label>
+                    <select id="productSeason">
+                        <option value="">Select Season</option>
+                        <option value="2023-24">2023/24</option>
+                        <option value="2022-23">2022/23</option>
+                        <option value="2021-22">2021/22</option>
+                        <option value="retro">Retro/Classic</option>
+                        <option value="training">Training</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="productDescription">Product Description *</label>
+                    <textarea id="productDescription" placeholder="Describe the product features, materials, and specifications..."></textarea>
+                </div>
+            </div>
+
+            <!-- Product Images -->
+            <div class="form-group full-width">
+                <label>Product Images *</label>
+                <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                    <div class="upload-icon">📷</div>
+                    <div class="upload-text">Drag & drop images here or click to upload</div>
+                    <div class="upload-text" style="font-size: 12px; color: #64748b;">Recommended: 1200x1200px, max 5MB per image</div>
+                    <button type="button" class="upload-btn">Browse Files</button>
+                    <input type="file" id="fileInput" multiple style="display: none;" onchange="previewImages(event)">
+                </div>
+                <div class="preview-images" id="imagePreview"></div>
+            </div>
+
+            <!-- Size Options -->
+            <div class="form-group full-width">
+                <label>Available Sizes *</label>
+                <div class="size-variants">
+                    <div class="size-option" onclick="toggleSize(this)">S</div>
+                    <div class="size-option" onclick="toggleSize(this)">M</div>
+                    <div class="size-option selected" onclick="toggleSize(this)">L</div>
+                    <div class="size-option" onclick="toggleSize(this)">XL</div>
+                    <div class="size-option" onclick="toggleSize(this)">XXL</div>
+                    <div class="size-option" onclick="toggleSize(this)">Kids S</div>
+                    <div class="size-option" onclick="toggleSize(this)">Kids M</div>
+                    <div class="size-option" onclick="toggleSize(this)">Kids L</div>
+                </div>
+            </div>
+
+            <!-- Color Options -->
+            <div class="form-group full-width">
+                <label>Available Colors *</label>
+                <div class="color-options">
+                    <div class="color-option selected" style="background-color: #A50044;" onclick="selectColor(this)" title="Barcelona Red"></div>
+                    <div class="color-option" style="background-color: #004D98;" onclick="selectColor(this)" title="Barcelona Blue"></div>
+                    <div class="color-option" style="background-color: #000000;" onclick="selectColor(this)" title="Black"></div>
+                    <div class="color-option" style="background-color: #FFFFFF; border: 1px solid #334155;" onclick="selectColor(this)" title="White"></div>
+                    <div class="color-option" style="background-color: #6CABDD;" onclick="selectColor(this)" title="Light Blue"></div>
+                    <div class="color-option" style="background-color: #DA291C;" onclick="selectColor(this)" title="Red"></div>
+                    <div class="color-option" style="background-color: #6C1D45;" onclick="selectColor(this)" title="Purple"></div>
+                    <div class="color-option" style="background-color: #132257;" onclick="selectColor(this)" title="Navy Blue"></div>
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div class="pricing-section">
+                <h3 style="color: #f1f5f9; margin-bottom: 20px;">Pricing Information</h3>
+                <div class="price-grid">
+                    <div class="form-group">
+                        <label for="basePrice">Base Price ($) *</label>
+                        <input type="number" id="basePrice" placeholder="89.99" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="salePrice">Sale Price ($)</label>
+                        <input type="number" id="salePrice" placeholder="74.99" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="costPrice">Cost Price ($) *</label>
+                        <input type="number" id="costPrice" placeholder="45.00" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Section -->
+            <div class="inventory-section">
+                <h3 style="color: #f1f5f9; margin-bottom: 20px;">Inventory Management</h3>
+                <div class="inventory-grid">
+                    <div class="form-group">
+                        <label for="sku">SKU Code *</label>
+                        <input type="text" id="sku" placeholder="BAR-HOME-2023-L">
+                    </div>
+                    <div class="form-group">
+                        <label for="stockQuantity">Stock Quantity *</label>
+                        <input type="number" id="stockQuantity" placeholder="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="lowStock">Low Stock Alert</label>
+                        <input type="number" id="lowStock" placeholder="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="barcode">Barcode</label>
+                        <input type="text" id="barcode" placeholder="123456789012">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="material">Material</label>
+                    <input type="text" id="material" placeholder="e.g., 100% Polyester Dri-FIT">
+                </div>
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <select id="brand">
+                        <option value="">Select Brand</option>
+                        <option value="nike">Nike</option>
+                        <option value="adidas">Adidas</option>
+                        <option value="puma">Puma</option>
+                        <option value="new-balance">New Balance</option>
+                        <option value="umbro">Umbro</option>
+                        <option value="kappa">Kappa</option>
+                        <option value="macron">Macron</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="kitType">Kit Type</label>
+                    <select id="kitType">
+                        <option value="">Select Type</option>
+                        <option value="home">Home Kit</option>
+                        <option value="away">Away Kit</option>
+                        <option value="third">Third Kit</option>
+                        <option value="goalkeeper">Goalkeeper</option>
+                        <option value="training">Training</option>
+                        <option value="warm-up">Warm-up</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="playerVersion">Player Version</label>
+                    <select id="playerVersion">
+                        <option value="false">Fan Version</option>
+                        <option value="true">Authentic Player Version</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="button" class="cancel-btn" onclick="window.location.href='dashboard.html'">Cancel</button>
+                <button type="button" class="save-btn" onclick="saveProduct()">Save & Publish Product</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Image Preview
+        function previewImages(event) {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = '';
+            
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'preview-img';
+                    preview.appendChild(img);
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Size Selection
+        function toggleSize(element) {
+            element.classList.toggle('selected');
+        }
+
+        // Color Selection
+        function selectColor(element) {
+            document.querySelectorAll('.color-option').forEach(el => {
+                el.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        // Save Product Function
+        function saveProduct() {
+            const productName = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const price = document.getElementById('basePrice').value;
+            
+            if (!productName || !category || !price) {
+                alert('Please fill in all required fields (*)');
+                return;
+            }
+            
+            // Show success message
+            alert('Product saved successfully!');
+            
+            // Redirect to products listing
+            window.location.href = 'listing.html';
+        }
+
+        // Auto-generate SKU
+        document.getElementById('productName').addEventListener('input', function() {
+            const skuField = document.getElementById('sku');
+            if (!skuField.value) {
+                const name = this.value.substring(0, 3).toUpperCase();
+                const sku = `${name}-${Math.floor(Math.random() * 10000)}`;
+                skuField.value = sku;
+            }
+        });
+    </script>
+</body>
+</html>

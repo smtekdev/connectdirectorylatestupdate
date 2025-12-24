@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Connect767</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a1b3d 0%, #071022 100%);
+            color: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .topbar {
+            background: rgba(8, 18, 41, 0.9);
+            padding: 12px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .topbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info a {
+            color: #cfd6e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #4dabf7;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: #cfd6e1;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #4dabf7;
+        }
+        
+        .navbar {
+            background: rgba(13, 23, 41, 0.95);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .hamburger {
+            width: 30px;
+            height: 23px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            background: #111c2f;
+            width: 250px;
+            height: 100vh;
+            padding: 80px 25px 30px;
+            transition: right 0.4s ease;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            font-weight: 300;
+        }
+        
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 16px;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: #4dabf7;
+            padding-left: 10px;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .form-container {
+            background: #0d4bce;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            border: 1px solid #c2e0ff;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .welcome-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #14cba8;
+        }
+        
+        .form-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: white;
+            border: 1px solid #b3d9ff;
+            border-radius: 10px;
+            color: #222222;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #14cba8;
+            box-shadow: 0 0 0 3px rgba(20, 203, 168, 0.3);
+            background: white;
+        }
+        
+        .form-input::placeholder {
+            color: #666666;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 42px;
+            color: #666666;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .remember-me input {
+            cursor: pointer;
+        }
+        
+        .forgot-password {
+            color: #14cba8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #1e63ff, #14cba8);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 99, 255, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 99, 255, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            color: white;
+            font-size: 15px;
+        }
+        
+        .register-link a {
+            color: #14cba8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+        
+        .form-divider span {
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-divider p {
+            padding: 0 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Demo Credentials */
+        .login-demo {
+            background: rgba(20, 203, 168, 0.1);
+            border: 1px solid rgba(20, 203, 168, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .login-demo h4 {
+            color: #14cba8;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .login-demo p {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .demo-credentials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: left;
+            font-size: 13px;
+            color: white;
+        }
+        
+        .demo-btn {
+            background: rgba(20, 203, 168, 0.2);
+            border: 1px solid #14cba8;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .demo-btn:hover {
+            background: rgba(20, 203, 168, 0.4);
+        }
+        
+        .footer {
+            background: #0a1427;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e63ff, #14cba8);
+            border-radius: 2px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4dabf7;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #1e63ff;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .demo-credentials {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 25px 20px;
+            }
+            
+            .form-header h2 {
+                font-size: 28px;
+            }
+            
+            .remember-forgot {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-content">
+                <div class="contact-info">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:support@connect767.com">support@connect767.com</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navbar -->
+    <div style="background:#0d1729;border-top:1px solid rgba(255,255,255,0.05);padding:14px 0; position:relative;">
+        <div style="
+            width:90%;
+            margin:auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        ">
+            <!-- Logo -->
+            <a href="index.html" style="
+                display:flex;
+                align-items:center;
+                text-decoration:none;
+            ">
+                <img 
+                    src="assets/images/white1.png"
+                    alt="Logo"
+                    style="
+                        height:90px;
+                        filter: brightness(0) invert(1);
+                    "
+                >
+            </a>
+
+            <!-- LOGIN + REGISTER + HAMBURGER (RIGHT SIDE) -->
+            <div style="
+                display:flex;
+                align-items:center;
+                gap:12px;
+                position:relative;
+            ">
+
+                <!-- LOGIN BUTTON -->
+                <a href="login.html" style="
+                    background: linear-gradient(90deg, #1e63ff, #14cba8);
+                    padding:6px 16px;
+                    border-radius:8px;
+                    color:white;
+                    font-size:14px;
+                    font-weight:600;
+                    text-decoration:none;
+                    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+                ">Login</a>
+
+                <!-- REGISTER BUTTON -->
+                <a href="register.html" style="
+                    background: linear-gradient(90deg, #1e63ff, #14cba8);
+                    padding:6px 16px;
+                    border-radius:8px;
+                    color:white;
+                    font-size:14px;
+                    font-weight:600;
+                    text-decoration:none;
+                    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+                ">Register</a>
+
+                <!-- ⭐ HAMBURGER ICON -->
+                <div id="hamburger" onclick="toggleMenu()" style="
+                    width:30px;
+                    height:23px;
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:space-between;
+                    cursor:pointer;
+                ">
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ⭐ MOBILE MENU -->
+    <div id="mobileMenu" style="
+        position:absolute;
+        top:60px;
+        right:20px;
+        background:#111c2f;
+        width:190px;
+        padding:16px;
+        border-radius:8px;
+        display:none;
+        box-shadow:0 10px 25px rgba(0,0,0,0.35);
+        z-index:9999;
+    ">
+        <!-- CLOSE BUTTON -->
+        <div onclick="toggleMenu()" style="
+            width:100%;
+            display:flex;
+            justify-content:flex-end;
+            margin-bottom:8px;
+            cursor:pointer;
+        ">
+            <span style="
+                font-size:18px;
+                color:white;
+                line-height:18px;
+                font-weight:700;
+            ">×</span>
+        </div>
+
+        <a href="index.html" style="color:white;text-decoration:none;display:block;padding:10px 0;">Home</a>
+        <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Shop</a>
+        <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Contact Us</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="form-container">
+            <div class="form-header">
+                <div class="welcome-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2>Welcome Back</h2>
+                <p>Sign in to your Connect767 business account</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <!-- FIXED PASSWORD FIELD -->
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
+                    <span class="password-toggle" onclick="togglePasswordVisibility('loginPassword')">
+                        <i class="far fa-eye" id="passwordToggle"></i>
+                    </span>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                
+                <div class="form-divider">
+                    <span></span>
+                    <p>Or continue with</p>
+                    <span></span>
+                </div>
+                
+                <div class="social-login">
+                    <div class="social-btn" title="Sign in with Google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="social-btn" title="Sign in with Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-btn" title="Sign in with LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                </div>
+                
+                <!-- Demo Credentials Section -->
+                <div class="login-demo">
+                    <h4>Demo Account (For Testing)</h4>
+                    <p>Use these credentials for testing:</p>
+                    <div class="demo-credentials">
+                        <div><strong>Email:</strong></div>
+                        <div>demo@connect767.com</div>
+                        <div><strong>Password:</strong></div>
+                        <div>Demo@123</div>
+                    </div>
+                    <button type="button" class="demo-btn" onclick="fillDemoCredentials()">
+                        <i class="fas fa-magic"></i> Fill Demo Credentials
+                    </button>
+                </div>
+                
+                <div class="register-link">
+                    Don't have a business account? <a href="register.html">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-th-list"></i> Shop</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile App</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>OUR SERVICES</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-network-wired"></i> Professional Networking</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Consulting Services</a></li>
+                        <li><a href="#"><i class="fas fa-industry"></i> Manufacturing Services</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Partnership Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@connect767.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> Phone: 852-253-2075</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</a></li>
+                        <li><a href="#"><i class="fas fa-city"></i> New York, NY 10001</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025 Connect767 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            var m = document.getElementById("mobileMenu");
+            m.style.display = (m.style.display === "block") ? "none" : "block";
+        }
+        
+        // Password Toggle Function
+        function togglePasswordVisibility(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById('passwordToggle');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+        
+        // Fill Demo Credentials
+        function fillDemoCredentials() {
+            document.getElementById('loginEmail').value = 'demo@connect767.com';
+            document.getElementById('loginPassword').value = 'Demo@123';
+            document.getElementById('rememberMe').checked = true;
+            
+            // Show success message
+            const form = document.getElementById('loginForm');
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Demo Credentials Filled!';
+            submitBtn.style.background = 'linear-gradient(90deg, #14cba8, #1e63ff)';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = 'linear-gradient(90deg, #1e63ff, #14cba8)';
+            }, 2000);
+        }
+        
+        // Show Forgot Password Modal
+        function showForgotPassword() {
+            const email = prompt('Enter your email address to reset password:');
+            if (email) {
+                // Check if email exists in businesses
+                const businesses = JSON.parse(localStorage.getItem('businesses') || '[]');
+                const businessExists = businesses.some(b => b.email === email);
+                
+                if (businessExists) {
+                    alert(`Password reset link has been sent to ${email}\n\n(In a real application, this would send an email)`);
+                } else {
+                    alert('No account found with this email address.');
+                }
+            }
+        }
+        
+        // Form submission - UPDATED TO CHECK BUSINESSES
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Validation
+            if (!email || !password) {
+                alert('Please enter both email and password.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Get businesses from localStorage (from registration)
+            let businesses = [];
+            try {
+                const businessesData = localStorage.getItem('businesses');
+                if (businessesData) {
+                    businesses = JSON.parse(businessesData);
+                }
+            } catch (error) {
+                console.error('Error reading businesses:', error);
+                businesses = [];
+            }
+            
+            // Demo account check
+            if (email === 'demo@connect767.com' && password === 'Demo@123') {
+                const demoUser = {
+                    id: 'demo123',
+                    businessName: 'Demo Business',
+                    email: 'demo@connect767.com',
+                    role: 'business',
+                    industry: 'Technology',
+                    isDemo: true
+                };
+                
+                // Save demo user
+                if (rememberMe) {
+                    localStorage.setItem('currentUser', JSON.stringify(demoUser));
+                    localStorage.setItem('rememberedEmail', email);
+                } else {
+                    sessionStorage.setItem('currentUser', JSON.stringify(demoUser));
+                    localStorage.removeItem('rememberedEmail');
+                }
+                
+                alert('✅ Demo Login Successful!\n\nWelcome, Demo Business!\n\nRedirecting to dashboard...');
+                
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+                return;
+            }
+            
+            // Find business by email and password
+            const business = businesses.find(b => {
+                return b.email === email && b.password === password;
+            });
+            
+            if (business) {
+                // Login successful
+                
+                // Save to storage based on remember me preference
+                const userData = {
+                    id: business.id,
+                    businessName: business.businessName,
+                    email: business.email,
+                    role: business.role || 'business',
+                    industry: business.industry,
+                    phone: business.phone,
+                    education: business.education,
+                    experience: business.experience,
+                    website: business.website,
+                    address: `${business.buildingNumber} ${business.streetName}, ${business.city}, ${business.state}, ${business.country}`,
+                    goodsServices: business.goodsServices,
+                    profilePicture: business.profilePicture,
+                    isDemo: false
+                };
+                
+                if (rememberMe) {
+                    // Save to localStorage for persistent login
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    localStorage.setItem('rememberedEmail', email);
+                } else {
+                    // Save to sessionStorage for session-only
+                    sessionStorage.setItem('currentUser', JSON.stringify(userData));
+                    localStorage.removeItem('rememberedEmail');
+                }
+                
+                // Update last login time
+                business.lastLogin = new Date().toISOString();
+                localStorage.setItem('businesses', JSON.stringify(businesses));
+                
+                // Show success message
+                alert(`✅ Login Successful!\n\nWelcome back, ${business.businessName}!\n\nRedirecting to dashboard...`);
+                
+                // Redirect to dashboard after 1.5 seconds
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+                
+            } else {
+                // Login failed
+                
+                // Check if email exists but password is wrong
+                const emailExists = businesses.some(b => b.email === email);
+                
+                if (emailExists) {
+                    alert('❌ Invalid password. Please try again.\n\nIf you forgot your password, click "Forgot Password" to reset.');
+                } else {
+                    alert('❌ No account found with this email address.\n\nPlease register first or use the demo credentials.\n\nDemo Email: demo@connect767.com\nDemo Password: Demo@123');
+                }
+            }
+        });
+        
+        // Check for remembered email on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const rememberedEmail = localStorage.getItem('rememberedEmail');
+            if (rememberedEmail) {
+                document.getElementById('loginEmail').value = rememberedEmail;
+                document.getElementById('rememberMe').checked = true;
+            }
+            
+            // Form field validation
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.value.trim() === '' && this.hasAttribute('required')) {
+                        this.style.borderColor = '#ff4757';
+                        this.style.backgroundColor = '#fff5f5';
+                    } else {
+                        this.style.borderColor = '#b3d9ff';
+                        this.style.backgroundColor = 'white';
+                    }
+                });
+                
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '#b3d9ff';
+                    this.style.backgroundColor = 'white';
+                });
+            });
+            
+            // Auto-focus on email field
+            document.getElementById('loginEmail').focus();
+            
+            // Social login buttons
+            document.querySelectorAll('.social-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    alert('Social login would be implemented in a real application.');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const hamburger = document.getElementById('hamburger');
+                
+                if (mobileMenu.style.display === 'block' && 
+                    !mobileMenu.contains(e.target) && 
+                    !hamburger.contains(e.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
