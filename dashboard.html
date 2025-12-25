@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Student Portal</title>
+    <title>Dashboard - User Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -495,7 +496,7 @@
             .courses-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -505,11 +506,12 @@
             .main-container {
                 flex-direction: column;
             }
-            
-            .sidebar, .content-area {
+
+            .sidebar,
+            .content-area {
                 width: 100%;
             }
-            
+
             .navbar-right {
                 display: none;
             }
@@ -519,158 +521,158 @@
             .courses-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .search-box {
                 width: 200px;
             }
         }
-    
-    /* Dashboard Banner - WITH USER INFO */
-    .dashboard-banner {
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        padding: 40px 30px 30px 30px;
-        border-bottom: 1px solid #334155;
-        position: relative;
-        overflow: hidden;
-    }
 
-    .dashboard-banner::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(79, 195, 247, 0.1) 0%, transparent 70%);
-    }
-
-    .breadcrumb {
-        color: #94a3b8;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-
-    .breadcrumb a {
-        color: #4fc3f7;
-        text-decoration: none;
-    }
-
-    .banner-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-    }
-
-    .banner-text {
-        flex: 1;
-    }
-
-    .banner-title {
-        font-size: 32px;
-        font-weight: 700;
-        color: #f1f5f9;
-        margin-bottom: 10px;
-    }
-
-    .banner-subtitle {
-        color: #cbd5e1;
-        font-size: 16px;
-        max-width: 600px;
-    }
-
-    /* User Info in Banner */
-    .banner-user-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 50px;
-        border-radius: 12px;
-        border: 1px solid rgba(79, 195, 247, 0.2);
-        min-width: 300px;
-        backdrop-filter: blur(10px);
-        transition: all 0.3s;
-    }
-
-    .banner-user-info:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(79, 195, 247, 0.4);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .banner-avatar {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #1e63ff, #14cba8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        font-weight: 600;
-        color: white;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .banner-user-details h3 {
-        font-size: 20px;
-        color: #f1f5f9;
-        margin-bottom: 5px;
-    }
-
-    .banner-user-details .role {
-        color: #94a3b8;
-        font-size: 14px;
-        background-color: rgba(30, 99, 255, 0.2);
-        padding: 4px 12px;
-        border-radius: 20px;
-        display: inline-block;
-        font-weight: 500;
-    }
-
-
-    /* Hover effect for dropdown trigger */
-    .user-dropdown-trigger:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-    
-    /* Animation for dropdown */
-    .user-dropdown-menu {
-        animation: fadeIn 0.2s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
+        /* Dashboard Banner - WITH USER INFO */
+        .dashboard-banner {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 40px 30px 30px 30px;
+            border-bottom: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .dashboard-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 195, 247, 0.1) 0%, transparent 70%);
         }
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
+
+        .breadcrumb {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+
+        .banner-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-text {
+            flex: 1;
+        }
+
+        .banner-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+        }
+
+        .banner-subtitle {
+            color: #cbd5e1;
+            font-size: 16px;
+            max-width: 600px;
+        }
+
+        /* User Info in Banner */
+        .banner-user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 12px;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            min-width: 300px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .banner-user-info:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(79, 195, 247, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e63ff, #14cba8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .banner-user-details h3 {
+            font-size: 20px;
+            color: #f1f5f9;
+            margin-bottom: 5px;
+        }
+
+        .banner-user-details .role {
+            color: #94a3b8;
+            font-size: 14px;
+            background-color: rgba(30, 99, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+
+        /* Hover effect for dropdown trigger */
+        .user-dropdown-trigger:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animation for dropdown */
         .user-dropdown-menu {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            width: 280px;
+            animation: fadeIn 0.2s ease-in-out;
         }
-    }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .user-dropdown-menu {
+                position: fixed;
+                top: 70px;
+                right: 20px;
+                width: 280px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Top Navbar -->
     <nav class="navbar">
@@ -679,107 +681,107 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                Student Portal
+                <!-- <i class="fas fa-graduation-cap"></i> -->
+                User Dashboard
             </div>
         </div>
         <div class="navbar-right">
-             <!-- Menu with Active State -->
-        <div style="display: flex; align-items: center; gap: 25px; margin-left: 30px;">
-            <a href="#" style="
+            <!-- Menu with Active State -->
+            <div style="display: flex; align-items: center; gap: 25px; margin-left: 30px;">
+                <a href="#" style="
                 color: #4fc3f7;
                 text-decoration: none;
                 font-weight: 600;
                 padding-bottom: 5px;
                 border-bottom: 2px solid #4fc3f7;
             ">Home</a>
-            
-            <a href="#" style="
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                About Us
-            </a>
-            
-            <a href="#" style="
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    About Us
+                </a>
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                Instructors
-            </a>
-            
-            <a href="#" style="
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    Instructors
+                </a>
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                Students
-            </a>
-            
-            <a href="#" style="
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    Students
+                </a>
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                Pages
-            </a>
-            
-            <a href="#" style="
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    Pages
+                </a>
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                Blog
-            </a>
-            
-            <a href="#" style="
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    Blog
+                </a>
+
+                <a href="#" style="
                 color: #cbd5e1;
                 text-decoration: none;
                 padding-bottom: 5px;
                 border-bottom: 2px solid transparent;
                 transition: all 0.3s;
-            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'" 
-               onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
-                Contact Us
-            </a>
+            " onmouseover="this.style.color='#4fc3f7'; this.style.borderBottomColor='#4fc3f7'"
+                    onmouseout="this.style.color='#cbd5e1'; this.style.borderBottomColor='transparent'">
+                    Contact Us
+                </a>
+            </div>
         </div>
-    </div>
-   
-            <div class="user-info" style="position: relative;">
-    <div class="user-dropdown-trigger" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background 0.3s;" 
-         onclick="toggleDropdown()">
-        <div class="user-avatar">
-            <img 
-                src=".\assets\images\user-19.jpg" 
-                alt="Student Avatar"
-                style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
-        </div>
-        <div class="user-details">
-            <h3 style="margin: 0; font-size: 16px; color: #f1f5f9;">Signal Band</h3>
-            <p style="margin: 0; font-size: 12px; color: #94a3b8;">Arts/Music/Entertainment</p>
-        </div>
-        <i class="fas fa-chevron-down" style="color: #94a3b8; font-size: 12px; transition: transform 0.3s;" id="dropdownArrow"></i>
-    </div>
-    
-    <!-- Dropdown Menu -->
-    <div class="user-dropdown-menu" id="userDropdown" style="
+
+        <div class="user-info" style="position: relative;">
+            <div class="user-dropdown-trigger"
+                style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: background 0.3s;"
+                onclick="toggleDropdown()">
+                <div class="user-avatar">
+                    <img src=".\assets\images\user-19.jpg" alt="Student Avatar"
+                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
+                </div>
+                <div class="user-details">
+                    <h3 style="margin: 0; font-size: 16px; color: #f1f5f9;">Signal Band</h3>
+                    <p style="margin: 0; font-size: 12px; color: #94a3b8;">Arts/Music/Entertainment</p>
+                </div>
+                <i class="fas fa-chevron-down" style="color: #94a3b8; font-size: 12px; transition: transform 0.3s;"
+                    id="dropdownArrow"></i>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div class="user-dropdown-menu" id="userDropdown" style="
         display: none;
         position: absolute;
         top: 100%;
@@ -793,101 +795,22 @@
         z-index: 1000;
         overflow: hidden;
     ">
-        <!-- User Info at Top -->
-        <div style="padding: 20px; border-bottom: 1px solid #334155; background: rgba(15, 23, 42, 0.5);">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                <img 
-                    src="D:\muzamil\mainconnect\connectdirect-main\assets\images\user-19.jpg" 
-                    alt="Student Avatar"
-                    style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
-                <div>
-                    <h4 style="margin: 0; color: #f1f5f9; font-size: 16px;">Studentdemo 2</h4>
-                    <p style="margin: 0; color: #94a3b8; font-size: 12px;">studentdemo2@example.com</p>
+                <!-- User Info at Top -->
+                <div style="padding: 20px; border-bottom: 1px solid #334155; background: rgba(15, 23, 42, 0.5);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                        <img src="./assets/images/user-19.jpg" alt="Student Avatar"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #4fc3f7;">
+                        <div>
+                            <h4 style="margin: 0; color: #f1f5f9; font-size: 16px;">Studentdemo 2</h4>
+                            <p style="margin: 0; color: #94a3b8; font-size: 12px;">studentdemo2@example.com</p>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            
-        </div>
-        
-        <!-- Menu Items -->
-        <div style="padding: 10px 0;">
-            <a href="dashboard.html" style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 20px;
-                color: #e2e8f0;
-                text-decoration: none;
-                transition: background 0.3s;
-                font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-tachometer-alt" style="width: 20px; color: #4fc3f7;"></i>
-                Dashboard
-            </a>
-            
-            <a href="Listing.html" style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 20px;
-                color: #e2e8f0;
-                text-decoration: none;
-                transition: background 0.3s;
-                font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-user" style="width: 20px; color: #14cba8;"></i>
-                My Business Profile
-            </a>
-            
-            <a href="wishlist.html" style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 20px;
-                color: #e2e8f0;
-                text-decoration: none;
-                transition: background 0.3s;
-                font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-list" style="width: 20px; color: #ff4757;"></i>
-                My Listings
-            </a>
-            
-            <a href="my-purchases.html" style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 20px;
-                color: #e2e8f0;
-                text-decoration: none;
-                transition: background 0.3s;
-                font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-chart-line" style="width: 20px; color: #1e63ff;"></i>
-                Analytics
-            </a>
-           
-           
-            
-            <a href="reviews.html" style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 20px;
-                color: #e2e8f0;
-                text-decoration: none;
-                transition: background 0.3s;
-                font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-star" style="width: 20px; color: #ffc107;"></i>
-                Reviews
-            </a>
 
-            <a href="reviews.html" style="
+                <!-- Menu Items -->
+                <div style="padding: 10px 0;">
+                    <a href="dashboard.html" style="
                 display: flex;
                 align-items: center;
                 gap: 12px;
@@ -896,13 +819,13 @@
                 text-decoration: none;
                 transition: background 0.3s;
                 font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-comment-dots" style="width: 20px; color: #ffc107;"></i>
-                Messages
-            </a>
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-tachometer-alt" style="width: 20px; color: #4fc3f7;"></i>
+                        Dashboard
+                    </a>
 
-             <a href="settings.html" style="
+                    <a href="Listing.html" style="
                 display: flex;
                 align-items: center;
                 gap: 12px;
@@ -911,19 +834,96 @@
                 text-decoration: none;
                 transition: background 0.3s;
                 font-size: 14px;
-            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'" 
-               onmouseout="this.style.backgroundColor='transparent'">
-                <i class="fas fa-cog" style="width: 20px; color: #ffc107;"></i>
-                Settings
-            </a>
-        </div>
-        
-        <!-- Divider -->
-        <div style="border-top: 1px solid #334155; margin: 5px 0;"></div>
-        
-        <!-- Sign Out Button -->
-        <div style="padding: 15px 20px;">
-            <button onclick="signOut()" style="
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-user" style="width: 20px; color: #14cba8;"></i>
+                        My Business Profile
+                    </a>
+
+                    <a href="wishlist.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-list" style="width: 20px; color: #ff4757;"></i>
+                        My Listings
+                    </a>
+
+                    <a href="my-purchases.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-chart-line" style="width: 20px; color: #1e63ff;"></i>
+                        Analytics
+                    </a>
+
+
+
+                    <a href="reviews.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-star" style="width: 20px; color: #ffc107;"></i>
+                        Reviews
+                    </a>
+
+                    <a href="reviews.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-comment-dots" style="width: 20px; color: #ffc107;"></i>
+                        Messages
+                    </a>
+
+                    <a href="settings.html" style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 20px;
+                color: #e2e8f0;
+                text-decoration: none;
+                transition: background 0.3s;
+                font-size: 14px;
+            " onmouseover="this.style.backgroundColor='rgba(15, 23, 42, 0.5)'"
+                        onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-cog" style="width: 20px; color: #ffc107;"></i>
+                        Settings
+                    </a>
+                </div>
+
+                <!-- Divider -->
+                <div style="border-top: 1px solid #334155; margin: 5px 0;"></div>
+
+                <!-- Sign Out Button -->
+                <div style="padding: 15px 20px;">
+                    <button onclick="signOut()" style="
                 width: 100%;
                 padding: 12px;
                 background: linear-gradient(90deg, #ff4757, #ff6b81);
@@ -938,76 +938,76 @@
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255, 71, 87, 0.3)'" 
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <i class="fas fa-sign-out-alt"></i>
-                Sign Out
-            </button>
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255, 71, 87, 0.3)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<script>
-    // Dropdown Toggle Function
-    function toggleDropdown() {
-        const dropdown = document.getElementById('userDropdown');
-        const arrow = document.getElementById('dropdownArrow');
-        
-        if (dropdown.style.display === 'block') {
-            dropdown.style.display = 'none';
-            arrow.style.transform = 'rotate(0deg)';
-        } else {
-            dropdown.style.display = 'block';
-            arrow.style.transform = 'rotate(180deg)';
-        }
-    }
+        <script>
+            // Dropdown Toggle Function
+            function toggleDropdown() {
+                const dropdown = document.getElementById('userDropdown');
+                const arrow = document.getElementById('dropdownArrow');
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-        const dropdown = document.getElementById('userDropdown');
-        const trigger = document.querySelector('.user-dropdown-trigger');
-        
-        if (!trigger.contains(event.target) && !dropdown.contains(event.target)) {
-            dropdown.style.display = 'none';
-            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
-        }
-    });
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    dropdown.style.display = 'block';
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            }
 
-    // Sign Out Function
-    function signOut() {
-        // Confirmation dialog
-        if (confirm("Are you sure you want to sign out?")) {
-            // Clear user session data (example)
-            localStorage.removeItem('userToken');
-            sessionStorage.clear();
-            
-            // Redirect to login page
-            window.location.href = "login.html";
-            
-            // Optional: Show logout message
-            alert("Signed out successfully! Redirecting to login page...");
-        }
-    }
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                const dropdown = document.getElementById('userDropdown');
+                const trigger = document.querySelector('.user-dropdown-trigger');
 
-    // Close dropdown when a menu item is clicked (for mobile)
-    document.querySelectorAll('.user-dropdown-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            document.getElementById('userDropdown').style.display = 'none';
-            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
-        });
-    });
-</script>
+                if (!trigger.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                    document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Sign Out Function
+            function signOut() {
+                // Confirmation dialog
+                if (confirm("Are you sure you want to sign out?")) {
+                    // Clear user session data (example)
+                    localStorage.removeItem('userToken');
+                    sessionStorage.clear();
+
+                    // Redirect to login page
+                    window.location.href = "login.html";
+
+                    // Optional: Show logout message
+                    alert("Signed out successfully! Redirecting to login page...");
+                }
+            }
+
+            // Close dropdown when a menu item is clicked (for mobile)
+            document.querySelectorAll('.user-dropdown-menu a').forEach(link => {
+                link.addEventListener('click', function () {
+                    document.getElementById('userDropdown').style.display = 'none';
+                    document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+                });
+            });
+        </script>
 
 
         </div>
     </nav>
 
     <!-- Full Width Dashboard Banner -->
-  <!-- Dashboard Banner with Background Image -->
-<div class="dashboard-banner" style="
+    <!-- Dashboard Banner with Background Image -->
+    <div class="dashboard-banner" style="
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), 
                 url('./assets/images/login-bg.png');
     background-size: cover;
@@ -1019,32 +1019,33 @@
     border: 1px solid #334155;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 ">
-   
-    <h1 class="banner-title" style="
+
+        <h1 class="banner-title" style="
         font-size: 36px;
         font-weight: 700;
         color: #f1f5f9;
         margin-bottom: 15px;
         text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     "> Dashboard</h1>
-     <div class="breadcrumb" style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">
-        <a href="directory.html" style="color: #d2dbdb; text-decoration: none;">Home →</a> <a href="#" style="color: #4fc3f7; text-decoration: none;">Dashboard</a>
-    </div>
-    <p class="banner-subtitle" style="
+        <div class="breadcrumb" style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">
+            <a href="directory.html" style="color: #d2dbdb; text-decoration: none;">Home →</a> <a href="#"
+                style="color: #4fc3f7; text-decoration: none;">Dashboard</a>
+        </div>
+        <p class="banner-subtitle" style="
         color: #cbd5e1;
         font-size: 18px;
         max-width: 800px;
         margin: 0 auto;
         line-height: 1.6;
     ">
-</div>
+    </div>
 
-<!-- GAP between banners -->
-<div style="height: 20px;"></div>
+    <!-- GAP between banners -->
+    <div style="height: 20px;"></div>
 
-<!-- User Banner with Background Image -->
-<!-- User Banner with Background Image -->
-<div class="user-banner" style="
+    <!-- User Banner with Background Image -->
+    <!-- User Banner with Background Image -->
+    <div class="user-banner" style="
     display: flex;
     align-items: center;
     gap: 25px;
@@ -1060,8 +1061,8 @@
     position: relative;
     overflow: hidden;
 ">
-    <!-- Overlay for better text visibility -->
-    <div style="
+        <!-- Overlay for better text visibility -->
+        <div style="
         position: absolute;
         top: 0;
         left: 0;
@@ -1070,11 +1071,9 @@
         background: rgba(15, 23, 42, 0.4);
         z-index: 0;
     "></div>
-    
-    <!-- Image -->
-    <img src="D:\muzamil\mainconnect\connectdirect-main\assets\images\user-19.jpg" 
-         alt="Student Photo" 
-         style="
+
+        <!-- Image -->
+        <img src="./assets/images/user-19.jpg" alt="Student Photo" style="
             width: 90px;
             height: 90px;
             border-radius: 50%;
@@ -1084,17 +1083,17 @@
             position: relative;
             z-index: 1;
          ">
-    
-    <!-- Text -->
-    <div style="position: relative; z-index: 1;">
-        <h3 style="
+
+        <!-- Text -->
+        <div style="position: relative; z-index: 1;">
+            <h3 style="
             font-size: 24px;
             color: #ffffff;
             margin-bottom: 8px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         ">Signal Band</h3>
-        <div style="
+            <div style="
             color: #ffffff;
             font-size: 16px;
             background: rgba(30, 99, 255, 0.5);
@@ -1105,15 +1104,15 @@
             display: inline-block;
             border: 1px solid rgba(255, 255, 255, 0.2);
         ">Arts/Music/Entertainment</div>
+        </div>
     </div>
-</div>
 
 
     <!-- Main Content -->
     <div class="main-container">
         <!-- Sidebar - 30% width -->
         <div class="sidebar">
-   
+
 
             <!-- Main Menu -->
             <div class="menu-section">
@@ -1132,8 +1131,8 @@
                         </a>
                         <span class="checkmark"><i class="fas fa-check-circle"></i></span>
                     </li>
-                   
-                     <li class="menu-item">
+
+                    <li class="menu-item">
                         <a href="#">
                             <i class="fas fa-list"></i>
 
@@ -1141,10 +1140,10 @@
                         </a>
                     </li>
 
-                     <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#">
                             <i class="fas fa-chart-line"></i>
- 
+
 
                             Analytics
                         </a>
@@ -1152,21 +1151,21 @@
 
                     <li class="menu-item">
                         <a href="#">
-                           <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
 
                             Reviews
                         </a>
                     </li>
-                    
+
                     <li class="menu-item">
                         <a href="#">
-                           <i class="fas fa-comment-dots"></i>
+                            <i class="fas fa-comment-dots"></i>
 
-                           Messages
+                            Messages
                         </a>
                     </li>
 
-                    
+
                 </ul>
             </div>
 
@@ -1195,687 +1194,692 @@
             <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card">
-                     <div class="stat-icon">
-            <i class="fas fa-eye"></i>
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
 
-        </div>
+                    </div>
                     <h3>Profile Views</h3>
                     <div class="stat-value">1,248</div>
-                  
+
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-            <i class="fas fa-link"></i>
-        </div>
+                        <i class="fas fa-link"></i>
+                    </div>
                     <h3>Website Clicks</h3>
                     <div class="stat-value">312</div>
-                   
+
                 </div>
                 <div class="stat-card">
-                     <div class="stat-icon">
-            <i class="fas fa-share-square"></i>
-        </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-share-square"></i>
+                    </div>
                     <h3>Profile Shares</h3>
                     <div class="stat-value">89</div>
-                    
+
                 </div>
             </div>
 
-           
 
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+            <!-- Font Awesome Icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
             <!-- Recently Enrolled Courses -->
-<div class="section-header">
-    <h2>Recent Activity</h2>
-    <button class="view-all-btn">View All Activity</button>
-</div>
-
-<div class="courses-grid">
-    <!-- Activity 1 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #3b82f6;">Profile</div>
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Business Profile">
-        </div>
-        <div class="course-content">
-            <div class="course-title">👁️ Profile Views Increased</div>
-            <div class="course-description">Your profile was viewed 23 times today - 45% increase from yesterday</div>
-            <div class="course-rating">
-                <div class="stars">📊</div>
-                <div class="rating-text">Today • 4:30 PM</div>
+            <div class="section-header">
+                <h2>Recent Activity</h2>
+                <button class="view-all-btn">View All Activity</button>
             </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">23 views</span>
-                    <span class="price-original">16 yesterday</span>
+
+            <div class="courses-grid">
+                <!-- Activity 1 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #3b82f6;">Profile</div>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Business Profile">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">👁️ Profile Views Increased</div>
+                        <div class="course-description">Your profile was viewed 23 times today - 45% increase from
+                            yesterday</div>
+                        <div class="course-rating">
+                            <div class="stars">📊</div>
+                            <div class="rating-text">Today • 4:30 PM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">23 views</span>
+                                <span class="price-original">16 yesterday</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">View Analytics <i class="fas fa-chart-line"></i></button>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #10b981;">Website</div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Website Traffic">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">🔗 Website Click Activity</div>
+                        <div class="course-description">Website clicked by 5 users from your business profile</div>
+                        <div class="course-rating">
+                            <div class="stars">🌐</div>
+                            <div class="rating-text">Today • 2:15 PM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">5 clicks</span>
+                                <span class="price-original">3.2 avg</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">View Profile <i class="fas fa-external-link-alt"></i></button>
+                    </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #8b5cf6;">Social</div>
+                        <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Social Share">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">📤 Social Media Share</div>
+                        <div class="course-description">Profile shared on WhatsApp by a potential customer</div>
+                        <div class="course-rating">
+                            <div class="stars">📱</div>
+                            <div class="rating-text">Today • 11:45 AM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">8 shares</span>
+                                <span class="price-original">this week</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">View Details <i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #f59e0b;">Lead</div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="New Lead">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">📞 New Lead Generated</div>
+                        <div class="course-description">Customer called after viewing your profile - Hot lead</div>
+                        <div class="course-rating">
+                            <div class="stars">⭐</div>
+                            <div class="rating-text">Today • 10:20 AM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">3 leads</span>
+                                <span class="price-original">today</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">View Lead <i class="fas fa-user-check"></i></button>
+                    </div>
+                </div>
+
+                <!-- Activity 5 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #ef4444;">Facebook</div>
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Facebook Activity">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">👍 Facebook Engagement</div>
+                        <div class="course-description">12 reactions on your latest Facebook business post</div>
+                        <div class="course-rating">
+                            <div class="stars">👍</div>
+                            <div class="rating-text">Yesterday • 8:30 PM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">12 reactions</span>
+                                <span class="price-original">8 comments</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">View Post <i class="fab fa-facebook"></i></button>
+                    </div>
+                </div>
+
+                <!-- Activity 6 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge" style="background-color: #06b6d4;">Review</div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="New Review">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-title">⭐ New 5-Star Review</div>
+                        <div class="course-description">"Excellent service! Highly recommended for quality products"
+                        </div>
+                        <div class="course-rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <div class="rating-text">Yesterday • 6:45 PM</div>
+                        </div>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-current">4.8 rating</span>
+                                <span class="price-original">47 reviews</span>
+                            </div>
+                        </div>
+                        <button class="view-course-btn">Reply <i class="fas fa-reply"></i></button>
+                    </div>
                 </div>
             </div>
-            <button class="view-course-btn">View Analytics <i class="fas fa-chart-line"></i></button>
-        </div>
-    </div>
 
-    <!-- Activity 2 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #10b981;">Website</div>
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Website Traffic">
-        </div>
-        <div class="course-content">
-            <div class="course-title">🔗 Website Click Activity</div>
-            <div class="course-description">Website clicked by 5 users from your business profile</div>
-            <div class="course-rating">
-                <div class="stars">🌐</div>
-                <div class="rating-text">Today • 2:15 PM</div>
-            </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">5 clicks</span>
-                    <span class="price-original">3.2 avg</span>
-                </div>
-            </div>
-            <button class="view-course-btn">View Profile <i class="fas fa-external-link-alt"></i></button>
-        </div>
-    </div>
+            <style>
+                /* Section Header */
+                .section-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 30px;
+                }
 
-    <!-- Activity 3 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #8b5cf6;">Social</div>
-            <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Social Share">
-        </div>
-        <div class="course-content">
-            <div class="course-title">📤 Social Media Share</div>
-            <div class="course-description">Profile shared on WhatsApp by a potential customer</div>
-            <div class="course-rating">
-                <div class="stars">📱</div>
-                <div class="rating-text">Today • 11:45 AM</div>
-            </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">8 shares</span>
-                    <span class="price-original">this week</span>
-                </div>
-            </div>
-            <button class="view-course-btn">View Details <i class="fas fa-share-alt"></i></button>
-        </div>
-    </div>
+                .section-header h2 {
+                    color: #f1f5f9;
+                    font-size: 24px;
+                    font-weight: 600;
+                }
 
-    <!-- Activity 4 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #f59e0b;">Lead</div>
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="New Lead">
-        </div>
-        <div class="course-content">
-            <div class="course-title">📞 New Lead Generated</div>
-            <div class="course-description">Customer called after viewing your profile - Hot lead</div>
-            <div class="course-rating">
-                <div class="stars">⭐</div>
-                <div class="rating-text">Today • 10:20 AM</div>
-            </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">3 leads</span>
-                    <span class="price-original">today</span>
-                </div>
-            </div>
-            <button class="view-course-btn">View Lead <i class="fas fa-user-check"></i></button>
-        </div>
-    </div>
+                .view-all-btn {
+                    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+                    color: white;
+                    border: none;
+                    padding: 10px 24px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
 
-    <!-- Activity 5 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #ef4444;">Facebook</div>
-            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Facebook Activity">
-        </div>
-        <div class="course-content">
-            <div class="course-title">👍 Facebook Engagement</div>
-            <div class="course-description">12 reactions on your latest Facebook business post</div>
-            <div class="course-rating">
-                <div class="stars">👍</div>
-                <div class="rating-text">Yesterday • 8:30 PM</div>
-            </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">12 reactions</span>
-                    <span class="price-original">8 comments</span>
-                </div>
-            </div>
-            <button class="view-course-btn">View Post <i class="fab fa-facebook"></i></button>
-        </div>
-    </div>
+                .view-all-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+                }
 
-    <!-- Activity 6 -->
-    <div class="course-card">
-        <div class="course-image">
-            <div class="course-badge" style="background-color: #06b6d4;">Review</div>
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="New Review">
-        </div>
-        <div class="course-content">
-            <div class="course-title">⭐ New 5-Star Review</div>
-            <div class="course-description">"Excellent service! Highly recommended for quality products"</div>
-            <div class="course-rating">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="rating-text">Yesterday • 6:45 PM</div>
-            </div>
-            <div class="course-price">
-                <div>
-                    <span class="price-current">4.8 rating</span>
-                    <span class="price-original">47 reviews</span>
-                </div>
-            </div>
-            <button class="view-course-btn">Reply <i class="fas fa-reply"></i></button>
-        </div>
-    </div>
-</div>
+                /* Grid Layout */
+                .courses-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 25px;
+                }
 
-<style>
-/* Section Header */
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
+                /* Card Styling */
+                .course-card {
+                    background: #1e293b;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    border: 1px solid #334155;
+                    transition: all 0.3s ease;
+                }
 
-.section-header h2 {
-    color: #f1f5f9;
-    font-size: 24px;
-    font-weight: 600;
-}
+                .course-card:hover {
+                    transform: translateY(-8px);
+                    border-color: #3b82f6;
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+                }
 
-.view-all-btn {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+                /* Image Section */
+                .course-image {
+                    position: relative;
+                    height: 180px;
+                    overflow: hidden;
+                }
 
-.view-all-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-}
+                .course-image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
 
-/* Grid Layout */
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-}
+                .course-card:hover .course-image img {
+                    transform: scale(1.05);
+                }
 
-/* Card Styling */
-.course-card {
-    background: #1e293b;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #334155;
-    transition: all 0.3s ease;
-}
+                .course-badge {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+                    color: white;
+                    padding: 6px 12px;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    z-index: 2;
+                }
 
-.course-card:hover {
-    transform: translateY(-8px);
-    border-color: #3b82f6;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-}
+                /* Content Section */
+                .course-content {
+                    padding: 20px;
+                }
 
-/* Image Section */
-.course-image {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-}
+                .course-title {
+                    color: #f1f5f9;
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    line-height: 1.4;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
 
-.course-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+                .course-description {
+                    color: #94a3b8;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    margin-bottom: 15px;
+                    height: 42px;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
 
-.course-card:hover .course-image img {
-    transform: scale(1.05);
-}
+                .course-rating {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 15px;
+                }
 
-.course-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    z-index: 2;
-}
+                .course-rating .stars {
+                    color: #fbbf24;
+                    font-size: 16px;
+                    margin-right: 10px;
+                }
 
-/* Content Section */
-.course-content {
-    padding: 20px;
-}
+                .rating-text {
+                    color: #94a3b8;
+                    font-size: 13px;
+                }
 
-.course-title {
-    color: #f1f5f9;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+                .course-price {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
 
-.course-description {
-    color: #94a3b8;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    height: 42px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
+                .price-current {
+                    color: #f1f5f9;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
 
-.course-rating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
+                .price-original {
+                    color: #94a3b8;
+                    font-size: 14px;
+                    margin-left: 10px;
+                }
 
-.course-rating .stars {
-    color: #fbbf24;
-    font-size: 16px;
-    margin-right: 10px;
-}
+                /* Button */
+                .view-course-btn {
+                    width: 100%;
+                    background: transparent;
+                    color: #60a5fa;
+                    border: 1px solid #334155;
+                    padding: 12px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                }
 
-.rating-text {
-    color: #94a3b8;
-    font-size: 13px;
-}
+                .view-course-btn:hover {
+                    background: rgba(96, 165, 250, 0.1);
+                    border-color: #60a5fa;
+                }
 
-.course-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+                .view-course-btn i {
+                    font-size: 12px;
+                    transition: transform 0.3s ease;
+                }
 
-.price-current {
-    color: #f1f5f9;
-    font-size: 20px;
-    font-weight: 700;
-}
+                .view-course-btn:hover i {
+                    transform: translateX(4px);
+                }
 
-.price-original {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-left: 10px;
-}
+                /* Responsive Design */
+                @media (max-width: 1024px) {
+                    .courses-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
 
-/* Button */
-.view-course-btn {
-    width: 100%;
-    background: transparent;
-    color: #60a5fa;
-    border: 1px solid #334155;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
+                @media (max-width: 768px) {
+                    .courses-grid {
+                        grid-template-columns: 1fr;
+                    }
 
-.view-course-btn:hover {
-    background: rgba(96, 165, 250, 0.1);
-    border-color: #60a5fa;
-}
+                    .section-header {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 15px;
+                    }
 
-.view-course-btn i {
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
+                    .course-image {
+                        height: 160px;
+                    }
+                }
 
-.view-course-btn:hover i {
-    transform: translateX(4px);
-}
+                @media (max-width: 480px) {
+                    .course-title {
+                        font-size: 16px;
+                    }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+                    .course-description {
+                        font-size: 13px;
+                    }
+                }
+            </style>
 
-@media (max-width: 768px) {
-    .courses-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    
-    .course-image {
-        height: 160px;
-    }
-}
-
-@media (max-width: 480px) {
-    .course-title {
-        font-size: 16px;
-    }
-    
-    .course-description {
-        font-size: 13px;
-    }
-}
-</style>
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <!-- Font Awesome Icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
             <!-- Footer -->
-            
+
         </div>
     </div>
 
-<footer class="dreams-footer">
-    <div class="footer-container">
-        <!-- Top Section with Logo and App Store -->
-    
+    <footer class="dreams-footer">
+        <div class="footer-container">
+            <!-- Top Section with Logo and App Store -->
 
-        <!-- Links Sections -->
-        <div class="footer-links">
+
+            <!-- Links Sections -->
+            <div class="footer-links">
                 <div class="footer-top">
-            <div class="footer-brand">
-                <h2 class="logo"><img 
-  src=".\assets\images\white1.png"
-  alt="Logo"
-  style="
+                    <div class="footer-brand">
+                        <h2 class="logo"><img src=".\assets\images\white1.png" alt="Logo" style="
     height:80px; /* pehle 120px tha, ab bara kar diya */
     filter: brightness(0) invert(1);
-  "
-></h2>
-                <p class="tagline">Connect – Your ultimate destination for soccer gear, kits, and everything football enthusiasts need.</p>
-                <div class="app-store">
-                    <a href="#" class="app-store-link">
-                        <i class="fab fa-google-play"></i>
-                        <span>Download on the<br><strong>Google Play</strong></span>
-                    </a>
+  "></h2>
+                        <p class="tagline">Connect – Your ultimate destination for soccer gear, kits, and everything
+                            football enthusiasts need.</p>
+                        <div class="app-store">
+                            <a href="#" class="app-store-link">
+                                <i class="fab fa-google-play"></i>
+                                <span>Download on the<br><strong>Google Play</strong></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="links-column">
+                    <h3 class="column-title">Support</h3>
+                    <ul class="links-list">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div class="links-column">
+                    <h3 class="column-title">About</h3>
+                    <ul class="links-list">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div class="links-column">
+                    <h3 class="column-title">Useful Links</h3>
+                    <ul class="links-list">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div class="links-column">
+                    <h3 class="column-title">Contact Info</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>310-437-2766</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>706 Campfire Ave. Meriden, CT</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-            <div class="links-column">
-                <h3 class="column-title">Support</h3>
-                <ul class="links-list">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            </div>
 
-            <div class="links-column">
-                <h3 class="column-title">About</h3>
-                <ul class="links-list">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            </div>
+            <!-- Divider -->
+            <div class="footer-divider"></div>
 
-            <div class="links-column">
-                <h3 class="column-title">Useful Links</h3>
-                <ul class="links-list">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
-            </div>
-
-            <div class="links-column">
-                <h3 class="column-title">Contact Info</h3>
-                <ul class="contact-list">
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <span>310-437-2766</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>contact@example.com</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>706 Campfire Ave. Meriden, CT</span>
-                    </li>
-                </ul>
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 connect. All rights reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Divider -->
-        <div class="footer-divider"></div>
+    <style>
+        .dreams-footer {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 40px 0 20px;
+            border-top: 1px solid #1e293b;
+            margin-top: auto;
+            font-size: 14px;
+        }
 
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p class="copyright">© 2025 connect. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-<style>
-.dreams-footer {
-    background-color: #0f172a;
-    color: #e2e8f0;
-    padding: 40px 0 20px;
-    border-top: 1px solid #1e293b;
-    margin-top: auto;
-    font-size: 14px;
-}
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .footer-brand .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 40px;
-}
+        .footer-brand .tagline {
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 25px;
+        }
 
-.footer-brand .logo {
-    font-size: 32px;
-    font-weight: 700;
-    color: #60a5fa;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #60a5fa, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .app-store-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+            border: 1px solid #475569;
+        }
 
-.footer-brand .tagline {
-    color: #94a3b8;
-    line-height: 1.6;
-    max-width: 500px;
-    margin-bottom: 25px;
-}
+        .app-store-link:hover {
+            background: linear-gradient(135deg, #334155, #475569);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-.app-store-link {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(135deg, #1e293b, #334155);
-    padding: 12px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #e2e8f0;
-    transition: all 0.3s ease;
-    border: 1px solid #475569;
-}
+        .app-store-link i {
+            font-size: 28px;
+            margin-right: 12px;
+            color: #60a5fa;
+        }
 
-.app-store-link:hover {
-    background: linear-gradient(135deg, #334155, #475569);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+        .app-store-link span {
+            line-height: 1.4;
+        }
 
-.app-store-link i {
-    font-size: 28px;
-    margin-right: 12px;
-    color: #60a5fa;
-}
+        .app-store-link strong {
+            font-size: 16px;
+            color: #f8fafc;
+        }
 
-.app-store-link span {
-    line-height: 1.4;
-}
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
 
-.app-store-link strong {
-    font-size: 16px;
-    color: #f8fafc;
-}
+        .links-column .column-title {
+            color: #f1f5f9;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
 
-.footer-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
+        .links-column .column-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            border-radius: 2px;
+        }
 
-.links-column .column-title {
-    color: #f1f5f9;
-    font-size: 18px;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 8px;
-}
+        .links-list {
+            list-style: none;
+        }
 
-.links-column .column-title:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, #60a5fa, #3b82f6);
-    border-radius: 2px;
-}
+        .links-list li {
+            margin-bottom: 12px;
+        }
 
-.links-list {
-    list-style: none;
-}
+        .links-list a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
 
-.links-list li {
-    margin-bottom: 12px;
-}
+        .links-list a:hover {
+            color: #60a5fa;
+            transform: translateX(5px);
+        }
 
-.links-list a {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
+        .contact-list {
+            list-style: none;
+        }
 
-.links-list a:hover {
-    color: #60a5fa;
-    transform: translateX(5px);
-}
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            color: #94a3b8;
+        }
 
-.contact-list {
-    list-style: none;
-}
+        .contact-list i {
+            color: #60a5fa;
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 16px;
+        }
 
-.contact-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 18px;
-    color: #94a3b8;
-}
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #334155, transparent);
+            margin: 30px 0;
+        }
 
-.contact-list i {
-    color: #60a5fa;
-    margin-right: 12px;
-    margin-top: 3px;
-    font-size: 16px;
-}
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+        }
 
-.footer-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #334155, transparent);
-    margin: 30px 0;
-}
+        .copyright {
+            color: #64748b;
+            font-size: 14px;
+        }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-}
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+            }
 
-.copyright {
-    color: #64748b;
-    font-size: 14px;
-}
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
-    }
-    
-    .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .app-store-link {
-        margin-top: 20px;
-    }
-}
+            .app-store-link {
+                margin-top: 20px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-container {
-        padding: 0 15px;
-    }
-    
-    .dreams-footer {
-        padding: 30px 0 20px;
-    }
-}
-</style>
+        @media (max-width: 480px) {
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
 
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            .footer-container {
+                padding: 0 15px;
+            }
+
+            .dreams-footer {
+                padding: 30px 0 20px;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 
-    
+
     <script>
         // Menu toggle functionality
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
             const sidebar = document.querySelector('.sidebar');
             const content = document.querySelector('.content-area');
-            
+
             if (sidebar.style.display === 'none') {
                 sidebar.style.display = 'block';
                 content.style.width = '70%';
@@ -1888,12 +1892,12 @@
 
         // Menu item selection
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 // Remove active class from all items
                 document.querySelectorAll('.menu-item').forEach(i => {
                     i.classList.remove('active');
                 });
-                
+
                 // Add active class to clicked item
                 this.classList.add('active');
             });
@@ -1901,19 +1905,20 @@
 
         // Course button functionality
         document.querySelectorAll('.view-course-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 const courseTitle = this.closest('.course-card').querySelector('.course-title').textContent;
                 alert(`Opening course: ${courseTitle}`);
             });
         });
 
         // View all courses button
-        document.querySelector('.view-all-btn').addEventListener('click', function() {
+        document.querySelector('.view-all-btn').addEventListener('click', function () {
             alert('Showing all enrolled courses...');
         });
 
         // User info dropdown (simplified)
-       
+
     </script>
 </body>
+
 </html>
