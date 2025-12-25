@@ -48,36 +48,32 @@
 
     <!-- NAVBAR -->
     <div style="background:#0d1729;border-top:1px solid rgba(255,255,255,0.05);padding:14px 0; position:relative;">
-    <div style="
+        <div style="
         width:90%;
         margin:auto;
         display:flex;
         justify-content:space-between;
         align-items:center;
     ">
-        <!-- Logo -->
-      <!-- Logo -->
-<img 
-  src=".\assets\images\white1.png"
-  alt="Logo"
-  style="
+            <!-- Logo -->
+            <!-- Logo -->
+            <img src=".\assets\images\white1.png" alt="Logo" style="
     height:80px; /* pehle 120px tha, ab bara kar diya */
     filter: brightness(0) invert(1);
-  "
->
+  ">
 
 
 
-        <!-- ⭐ LOGIN + REGISTER + HAMBURGER (RIGHT SIDE) -->
-        <div style="
+            <!-- ⭐ LOGIN + REGISTER + HAMBURGER (RIGHT SIDE) -->
+            <div style="
             display:flex;
             align-items:center;
             gap:12px;
             position:relative;
         ">
 
-            <!-- LOGIN BUTTON -->
-            <a href="login.html" style="
+                <!-- LOGIN BUTTON -->
+                <a href="login.html" style="
                 background: linear-gradient(90deg, #1e63ff, #14cba8);
                 padding:6px 16px;
                 border-radius:8px;
@@ -88,8 +84,8 @@
                 box-shadow:0 4px 10px rgba(0,0,0,0.25);
             ">Login</a>
 
-            <!-- REGISTER BUTTON -->
-            <a href="register.html" style="
+                <!-- REGISTER BUTTON -->
+                <a href="register.html" style="
                 background: linear-gradient(90deg, #1e63ff, #14cba8);
                 padding:6px 16px;
                 border-radius:8px;
@@ -100,8 +96,8 @@
                 box-shadow:0 4px 10px rgba(0,0,0,0.25);
             ">Register</a>
 
-            <!-- ⭐ HAMBURGER ICON -->
-            <div id="hamburger" onclick="toggleMenu()" style="
+                <!-- ⭐ HAMBURGER ICON -->
+                <div id="hamburger" onclick="toggleMenu()" style="
                 width:30px;
                 height:23px;
                 display:flex;
@@ -109,18 +105,18 @@
                 justify-content:space-between;
                 cursor:pointer;
             ">
-                <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
-                <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
-                <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                    <span style="width:100%;height:3px;background:#ffffff;border-radius:3px;"></span>
+                </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
 
-<!-- ⭐ MOBILE MENU -->
-<div id="mobileMenu" style="
+    <!-- ⭐ MOBILE MENU -->
+    <div id="mobileMenu" style="
     position:absolute;
     top:60px;
     right:20px;
@@ -133,44 +129,44 @@
     z-index:9999;
 ">
 
-    <!-- CLOSE BUTTON -->
-    <div onclick="toggleMenu()" style="
+        <!-- CLOSE BUTTON -->
+        <div onclick="toggleMenu()" style="
         width:100%;
         display:flex;
         justify-content:flex-end;
         margin-bottom:8px;
         cursor:pointer;
     ">
-        <span style="
+            <span style="
             font-size:18px;
             color:white;
             line-height:18px;
             font-weight:700;
         ">×</span>
+        </div>
+
+        <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Home</a>
+        <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Shop</a>
+        <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Contact Us</a>
     </div>
 
-    <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Home</a>
-    <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Shop</a>
-    <a href="#" style="color:white;text-decoration:none;display:block;padding:10px 0;">Contact Us</a>
-</div>
-
-<script>
-function toggleMenu() {
-    var m = document.getElementById("mobileMenu");
-    m.style.display = (m.style.display === "block") ? "none" : "block";
-}
-</script>
+    <script>
+        function toggleMenu() {
+            var m = document.getElementById("mobileMenu");
+            m.style.display = (m.style.display === "block") ? "none" : "block";
+        }
+    </script>
 
 
-<script>
-function toggleMenu() {
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-</script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+    </script>
 
 
-                <!-- <button style="
+    <!-- <button style="
                 background:#1e63ff;
                 border:none;
                 color:white;
@@ -185,8 +181,8 @@ function toggleMenu() {
             ">
                     <i class="fa-solid fa-circle-plus"></i> Add Business
                 </button> -->
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
 
 
@@ -194,47 +190,38 @@ function toggleMenu() {
 
 
     <!-- Hero Section -->
-   <section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <video id="dashboardVideo" autoplay muted loop playsinline  style="border-radius: 12px; width:160px; height:auto; object-fit:contain;">
-                        <!-- Yahan apni video ka path daalo -->
-                        <!-- Example paths: -->
-                        <!-- <source src="videos/myvideofile.mp4" type="video/mp4"> -->
-                        <!-- <source src="C:/Users/YourName/Videos/soccer.mp4" type="video/mp4"> -->
-                        <!-- <source src="D:/muzamil/videos/promotional.mp4" type="video/mp4"> -->
-                        
-                        <!-- Temporary placeholder - Tum isko replace kar dena -->
-                        <source src=".\assets\images\FINALREV1.mp4" type="video/mp4" id="videoSource">
-                        Your browser does not support the video tag. 
-                    </video>
-           
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="./assets/images/la.gif" alt="Dashboard animation"
+                    style="border-radius:12px; width:260px; height:auto; object-fit:contain;">
 
-            <p>Discover trusted local services with global reach. Our comprehensive directory
-                helps you find exactly what you need, wherever you are.</p>
 
-            <!-- 🔍 SEARCH BAR (NOW BOTH BUTTONS TOGETHER) -->
-            <form class="search-bar" onsubmit="event.preventDefault();">
-                <div class="search-field">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <input type="text" placeholder="Search for business, service, or professional..." />
-                </div>
+                <p>Discover trusted local services with global reach. Our comprehensive directory
+                    helps you find exactly what you need, wherever you are.</p>
 
-                <!-- BOTH BUTTONS SAME ROW -->
-                <div class="search-buttons">
-                    <button class="search-button" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i> Search
-                    </button>
+                <!-- 🔍 SEARCH BAR (NOW BOTH BUTTONS TOGETHER) -->
+                <form class="search-bar" onsubmit="event.preventDefault();">
+                    <div class="search-field">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <input type="text" placeholder="Search for business, service, or professional..." />
+                    </div>
 
-                    <button id="advancedSearchBtn" type="button" class="advanced-btn">
-                        Advanced Search
-                    </button>
-                </div>
-            </form>
+                    <!-- BOTH BUTTONS SAME ROW -->
+                    <div class="search-buttons">
+                        <button class="search-button" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i> Search
+                        </button>
 
+                        <button id="advancedSearchBtn" type="button" class="advanced-btn">
+                            Advanced Search
+                        </button>
+                    </div>
+                </form>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -542,245 +529,245 @@ function toggleMenu() {
     <!-- Directory Listings -->
     <!-- Directory Listings with Glass Effect -->
     <!-- Directory Listings with Glass Effect -->
-   <section class="directory-section">
-    <div class="section-header">
-        <h2>Featured Businesses</h2>
-        <p>Discover top-rated businesses and service providers in our directory</p>
-    </div>
-
-    <div class="listing-options">
-        <div class="sort-options">
-            <label for="sort">Sort by: </label>
-            <select id="sort" class="form-control">
-                <option value="featured">Featured</option>
-                <option value="rating">Highest Rated</option>
-                <option value="name">Name (A-Z)</option>
-                <option value="newest">Newest First</option>
-            </select>
+    <section class="directory-section">
+        <div class="section-header">
+            <h2>Featured Businesses</h2>
+            <p>Discover top-rated businesses and service providers in our directory</p>
         </div>
-    </div>
-    </div>
 
-    <div class="business-list grid-view">
+        <div class="listing-options">
+            <div class="sort-options">
+                <label for="sort">Sort by: </label>
+                <select id="sort" class="form-control">
+                    <option value="featured">Featured</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+        </div>
 
-        <!-- Business Card 1 -->
-        <div class="business-card">
-            <div class="business-header">
+        <div class="business-list grid-view">
 
-                <div class="profile-with-name">
-                    <img src="assets/images/p1.png" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">Signal Band</h3>
-                        <span class="business-category">Music & Entertainment</span>
+            <!-- Business Card 1 -->
+            <div class="business-card">
+                <div class="business-header">
+
+                    <div class="profile-with-name">
+                        <img src="assets/images/p1.png" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">Signal Band</h3>
+                            <span class="business-category">Music & Entertainment</span>
+                        </div>
+                    </div>
+
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.8</span>
-                </div>
-            </div>
-
-            <div class="business-body">
-                <p class="business-description">Signal Band is a vibrant group delivering live music for weddings,
-                    events, and corporate shows. We bring passion, energy, and excitement to make every performance
-                    truly unforgettable.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://zhaoo.legnainbehand@gmail.com</span>
-                </div>
-            </div>
-
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> New York, USA
-                </div>
-                <a href="#" class="view-profile">View Profile</a>
-            </div>
-        </div>
-
-        <!-- Business Card 2 -->
-        <div class="business-card">
-            <div class="business-header">
-
-                <div class="profile-with-name">
-                    <img src="assets/images/p2.jpg" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">Yuri A Jones</h3>
-                        <span class="business-category">Photography & Videography</span>
+                <div class="business-body">
+                    <p class="business-description">Signal Band is a vibrant group delivering live music for weddings,
+                        events, and corporate shows. We bring passion, energy, and excitement to make every performance
+                        truly unforgettable.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://zhaoo.legnainbehand@gmail.com</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.9</span>
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> New York, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
                 </div>
             </div>
 
-            <div class="business-body">
-                <p class="business-description">At Yuri A Jones Photography & Videography, we capture your precious
-                    moments with style and creativity, turning memories into stunning visuals that express your
-                    story beautifully and professionally.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://de-1234.yuri@yuriajones.com</span>
-                </div>
-            </div>
+            <!-- Business Card 2 -->
+            <div class="business-card">
+                <div class="business-header">
 
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> California, USA
-                </div>
-                <a href="#" class="view-profile">View Profile</a>
-            </div>
-        </div>
+                    <div class="profile-with-name">
+                        <img src="assets/images/p2.jpg" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">Yuri A Jones</h3>
+                            <span class="business-category">Photography & Videography</span>
+                        </div>
+                    </div>
 
-        <!-- Business Card 3 -->
-        <div class="business-card">
-            <div class="business-header">
-
-                <div class="profile-with-name">
-                    <img src="assets/images/p3.png" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">Nadja Odi Thomas</h3>
-                        <span class="business-category">Visual Media</span>
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.9</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.7</span>
-                </div>
-            </div>
-
-            <div class="business-body">
-                <p class="business-description">At Nadja Odi Thomas, we craft creative visual content that inspires,
-                    connects, and tells your story with originality and impact, engaging your audience through
-                    modern, compelling, and artistic storytelling.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://saoidea.nadjaa.homas@gmail.com</span>
-                </div>
-            </div>
-
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> Texas, USA
-                </div>
-                <a href="#" class="view-profile">View Profile</a>
-            </div>
-        </div>
-
-        <!-- Business Card 4 -->
-        <div class="business-card">
-            <div class="business-header">
-
-                <div class="profile-with-name">
-                    <img src="assets/images/p4.jpg" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">CORISAV INC.</h3>
-                        <span class="business-category">Business Services</span>
+                <div class="business-body">
+                    <p class="business-description">At Yuri A Jones Photography & Videography, we capture your precious
+                        moments with style and creativity, turning memories into stunning visuals that express your
+                        story beautifully and professionally.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://de-1234.yuri@yuriajones.com</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.6</span>
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> California, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
                 </div>
             </div>
 
-            <div class="business-body">
-                <p class="business-description">At CORISAV INC., we deliver innovative, reliable, and high-quality
-                    business solutions that empower organizations of all sizes to grow efficiently, achieve goals,
-                    and stay ahead in competitive markets.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://saoidea.nadjaa.homas@gmail.com</span>
-                </div>
-            </div>
+            <!-- Business Card 3 -->
+            <div class="business-card">
+                <div class="business-header">
 
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> Florida, USA
-                </div>
-                <a href="#" class="view-profile">View Profile</a>
-            </div>
-        </div>
+                    <div class="profile-with-name">
+                        <img src="assets/images/p3.png" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">Nadja Odi Thomas</h3>
+                            <span class="business-category">Visual Media</span>
+                        </div>
+                    </div>
 
-        <!-- Business Card 5 -->
-        <div class="business-card">
-            <div class="business-header">
-
-                <div class="profile-with-name">
-                    <img src="assets/images/p5.jpg" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">A Anold Johnson</h3>
-                        <span class="business-category">Import/Export</span>
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.5</span>
-                </div>
-            </div>
-
-            <div class="business-body">
-                <p class="business-description">At Arnold Johnson, we provide premium global imports that meet your
-                    business goals. Our focus is on quality, efficiency, and delivering trusted goods worldwide with
-                    excellence and commitment.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://saoidea.nadjaa.homas@gmail.com</span>
-                </div>
-            </div>
-
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> Illinois, USA
-                </div>
-                <a href="#" class="view-profile">View Profile</a>
-            </div>
-        </div>
-
-        <!-- Business Card 6 -->
-        <div class="business-card">
-            <div class="business-header">
-
-                <div class="profile-with-name">
-                    <img src="assets/images/p6.png" class="business-profile-circle" alt="Profile">
-                    <div class="business-info">
-                        <h3 class="business-name">Gremophoto</h3>
-                        <span class="business-category">Photography & Design</span>
+                <div class="business-body">
+                    <p class="business-description">At Nadja Odi Thomas, we craft creative visual content that inspires,
+                        connects, and tells your story with originality and impact, engaging your audience through
+                        modern, compelling, and artistic storytelling.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://saoidea.nadjaa.homas@gmail.com</span>
                     </div>
                 </div>
 
-                <div class="business-rating">
-                    <i class="fas fa-star"></i>
-                    <span>4.8</span>
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> Texas, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
                 </div>
             </div>
 
-            <div class="business-body">
-                <p class="business-description">At Gremophoto, we create captivating visuals through photography and
-                    design, blending creativity and innovation to deliver artistic results that highlight your
-                    brand’s beauty, message, and style perfectly.</p>
-                <div class="business-contact">
-                    <i class="fas fa-globe"></i>
-                    <span>https://saoidea.nadjaa.homas@gmail.com</span>
+            <!-- Business Card 4 -->
+            <div class="business-card">
+                <div class="business-header">
+
+                    <div class="profile-with-name">
+                        <img src="assets/images/p4.jpg" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">CORISAV INC.</h3>
+                            <span class="business-category">Business Services</span>
+                        </div>
+                    </div>
+
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6</span>
+                    </div>
+                </div>
+
+                <div class="business-body">
+                    <p class="business-description">At CORISAV INC., we deliver innovative, reliable, and high-quality
+                        business solutions that empower organizations of all sizes to grow efficiently, achieve goals,
+                        and stay ahead in competitive markets.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://saoidea.nadjaa.homas@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> Florida, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
                 </div>
             </div>
 
-            <div class="business-footer">
-                <div class="business-location">
-                    <i class="fas fa-map-marker-alt"></i> Washington, USA
+            <!-- Business Card 5 -->
+            <div class="business-card">
+                <div class="business-header">
+
+                    <div class="profile-with-name">
+                        <img src="assets/images/p5.jpg" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">A Anold Johnson</h3>
+                            <span class="business-category">Import/Export</span>
+                        </div>
+                    </div>
+
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.5</span>
+                    </div>
                 </div>
-                <a href="#" class="view-profile">View Profile</a>
+
+                <div class="business-body">
+                    <p class="business-description">At Arnold Johnson, we provide premium global imports that meet your
+                        business goals. Our focus is on quality, efficiency, and delivering trusted goods worldwide with
+                        excellence and commitment.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://saoidea.nadjaa.homas@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> Illinois, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
             </div>
+
+            <!-- Business Card 6 -->
+            <div class="business-card">
+                <div class="business-header">
+
+                    <div class="profile-with-name">
+                        <img src="assets/images/p6.png" class="business-profile-circle" alt="Profile">
+                        <div class="business-info">
+                            <h3 class="business-name">Gremophoto</h3>
+                            <span class="business-category">Photography & Design</span>
+                        </div>
+                    </div>
+
+                    <div class="business-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8</span>
+                    </div>
+                </div>
+
+                <div class="business-body">
+                    <p class="business-description">At Gremophoto, we create captivating visuals through photography and
+                        design, blending creativity and innovation to deliver artistic results that highlight your
+                        brand’s beauty, message, and style perfectly.</p>
+                    <div class="business-contact">
+                        <i class="fas fa-globe"></i>
+                        <span>https://saoidea.nadjaa.homas@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="business-footer">
+                    <div class="business-location">
+                        <i class="fas fa-map-marker-alt"></i> Washington, USA
+                    </div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+            </div>
+
         </div>
-
-    </div>
-</section>
+    </section>
 
 
 
@@ -930,22 +917,22 @@ function toggleMenu() {
 
 
     <!-- ===================== CONNECT STATS SECTION (INLINE GRADIENTS) ===================== -->
- <section id="cd-stats" style="padding:100px 0; background:#071022;">
-    <div style="width:92%; margin:auto; text-align:center;">
+    <section id="cd-stats" style="padding:100px 0; background:#071022;">
+        <div style="width:92%; margin:auto; text-align:center;">
 
-        <!-- HEADING + DESCRIPTION (FULL CENTER) -->
-        <div style="max-width:700px; margin:0 auto;">
-            
-            <h2 style="
+            <!-- HEADING + DESCRIPTION (FULL CENTER) -->
+            <div style="max-width:700px; margin:0 auto;">
+
+                <h2 style="
                 color:white;
                 font-size:42px;
                 font-weight:800;
                 margin:0;
             ">
-                Subscribe to our Newsletter
-            </h2>
+                    Subscribe to our Newsletter
+                </h2>
 
-            <p style="
+                <p style="
                 color:#cfd6e1;
                 font-size:16px;
                 margin-top:16px;
@@ -954,19 +941,19 @@ function toggleMenu() {
                 max-width:520px;
                 line-height:28px;
             ">
-                Get updates, offers, and the latest business insights delivered globally.
-            </p>
+                    Get updates, offers, and the latest business insights delivered globally.
+                </p>
 
-        </div>
+            </div>
 
-        <!-- EMAIL SUBSCRIBE BAR CENTERED -->
-        <div style="
+            <!-- EMAIL SUBSCRIBE BAR CENTERED -->
+            <div style="
             margin-top:40px;
             width:100%;
             display:flex;
             justify-content:center;
         ">
-            <div style="
+                <div style="
                 background:rgba(255,255,255,0.06);
                 border:1px solid rgba(255,255,255,0.08);
                 backdrop-filter:blur(14px);
@@ -978,7 +965,7 @@ function toggleMenu() {
                 gap:12px;
                 align-items:center;
             ">
-                <input type="email" placeholder="Enter your email" style="
+                    <input type="email" placeholder="Enter your email" style="
                     flex:1;
                     padding:14px 18px;
                     border-radius:10px;
@@ -989,7 +976,7 @@ function toggleMenu() {
                     outline:none;
                 ">
 
-                <button style="
+                    <button style="
                     padding:14px 22px;
                     border-radius:10px;
                     background:linear-gradient(90deg, #1A56DB 0%, #00C29A 100%);
@@ -1000,13 +987,13 @@ function toggleMenu() {
                     cursor:pointer;
                     box-shadow:0 6px 18px rgba(0,194,154,0.35);
                 ">
-                    Subscribe
-                </button>
+                        Subscribe
+                    </button>
+                </div>
             </div>
-        </div>
 
-    </div>
-</section>
+        </div>
+    </section>
 
 
     <!-- Footer -->
